@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Habits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Habit type</th>
+      <th>Frequency</th>
+      <th>Goal frequency</th>
+      <th>Private</th>
+      <th>Current progress</th>
+      <th>Top streak</th>
+      <th>Owner</th>
+      <th>Steps count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @habits.each do |habit| %>
+      <tr>
+        <td><%= habit.title %></td>
+        <td><%= habit.description %></td>
+        <td><%= habit.habit_type %></td>
+        <td><%= habit.frequency %></td>
+        <td><%= habit.goal_frequency %></td>
+        <td><%= habit.private %></td>
+        <td><%= habit.current_progress %></td>
+        <td><%= habit.top_streak %></td>
+        <td><%= habit.owner_id %></td>
+        <td><%= habit.steps_count %></td>
+        <td><%= link_to 'Show', habit %></td>
+        <td><%= link_to 'Edit', edit_habit_path(habit) %></td>
+        <td><%= link_to 'Destroy', habit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Habit', new_habit_path %>

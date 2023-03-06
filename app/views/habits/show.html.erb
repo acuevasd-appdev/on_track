@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @habit.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @habit.description %>
+</p>
+
+<p>
+  <strong>Habit type:</strong>
+  <%= @habit.habit_type %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @habit.frequency %>
+</p>
+
+<p>
+  <strong>Goal frequency:</strong>
+  <%= @habit.goal_frequency %>
+</p>
+
+<p>
+  <strong>Private:</strong>
+  <%= @habit.private %>
+</p>
+
+<p>
+  <strong>Current progress:</strong>
+  <%= @habit.current_progress %>
+</p>
+
+<p>
+  <strong>Top streak:</strong>
+  <%= @habit.top_streak %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @habit.owner_id %>
+</p>
+
+<p>
+  <strong>Steps count:</strong>
+  <%= @habit.steps_count %>
+</p>
+
+<%= link_to 'Edit', edit_habit_path(@habit) %> |
+<%= link_to 'Back', habits_path %>
