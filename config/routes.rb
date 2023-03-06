@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "habits#index"
+  
   resources :supports
   resources :steps
   resources :friend_requests

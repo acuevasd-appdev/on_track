@@ -6,7 +6,7 @@
 #  current_progress :float            default(0.0)
 #  description      :text
 #  frequency        :string           not null
-#  goal_frequenc    :integer          not null
+#  goal_frequency   :integer          not null
 #  habit_type       :string           not null
 #  private          :boolean          default(FALSE)
 #  steps_count      :integer          default(0)

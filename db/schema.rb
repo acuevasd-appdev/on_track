@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_06_222657) do
+ActiveRecord::Schema.define(version: 2023_03_06_224458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2023_03_06_222657) do
     t.text "description"
     t.string "habit_type", null: false
     t.string "frequency", null: false
-    t.integer "goal_frequenc", null: false
     t.boolean "private", default: false
     t.float "current_progress", default: 0.0
     t.float "top_streak", default: 0.0
@@ -39,6 +38,7 @@ ActiveRecord::Schema.define(version: 2023_03_06_222657) do
     t.integer "steps_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "goal_frequency", null: false
     t.index ["owner_id"], name: "index_habits_on_owner_id"
   end
 
