@@ -31,6 +31,20 @@ class User < ApplicationRecord
   
   has_many :own_habits, foreign_key: :owner_id, class_name: "Habit", dependent: :destroy
 
+  has_many :sent_friend_requests, foreign_key: :sender_id,  class_name: "FriendRequest", dependent: :destroy
+  has_many :received_friend_requests, foreign_key: :recipient_id,  class_name: "FriendRequest", dependent: :destroy
 
+  #Friends sender and receipent
+  has_many :accepted_sent_friend_requests, ->{ accepted }, foreign_key: :sender_id,  class_name: "FriendRequest"
+  has_many :accepted_received_friend_requests, ->{ accepted }, foreign_key: :recipient_id,  class_name: "FriendRequest"
+
+  has_many :supports, foreign_key: :fan_id, dependent: :destroy
+
+  #Indirect associations:
+  has_many :own_steps, through: :own_habits, source: :steps
+  has_many :supported_steps, through: :supports, source: :step
   
+  has_many :friends_r, through: :accepted_sent_friend_requests, source: :recipient
+  has_many :friends_s, through: :accepted_received_friend_requests, source: :sender
+
 end

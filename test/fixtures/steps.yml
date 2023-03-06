@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: steps
+#
+#  id              :bigint           not null, primary key
+#  caption         :text
+#  comments_count  :integer          default(0)
+#  date_completion :datetime         not null
+#  image           :string
+#  supports_count  :integer          default(0)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  habit_id        :bigint           not null
+#
+# Indexes
+#
+#  index_steps_on_habit_id  (habit_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (habit_id => habits.id)
+#
+
+one:
+  caption: MyText
+  image: MyString
+  comments_count: 1
+  supports_count: 1
+  habit: one
+  date_completion: 2023-03-06 22:26:45
+
+two:
+  caption: MyText
+  image: MyString
+  comments_count: 1
+  supports_count: 1
+  habit: two
+  date_completion: 2023-03-06 22:26:45

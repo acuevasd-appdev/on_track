@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @step.caption %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @step.image %>
+</p>
+
+<p>
+  <strong>Comments count:</strong>
+  <%= @step.comments_count %>
+</p>
+
+<p>
+  <strong>Supports count:</strong>
+  <%= @step.supports_count %>
+</p>
+
+<p>
+  <strong>Habit:</strong>
+  <%= @step.habit_id %>
+</p>
+
+<p>
+  <strong>Date completion:</strong>
+  <%= @step.date_completion %>
+</p>
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>

@@ -27,7 +27,7 @@
 class Habit < ApplicationRecord
   belongs_to :owner, class_name: "User", counter_cache: true
 
-  #has_many :steps, dependent: :destroy
+  has_many :steps, dependent: :destroy
  
   enum frequency: {daily: "daily", weekly: "weekly", monthly: "monthly" }
   enum habit_type: {health: "health", productivity: "productivity", other: "other"}
