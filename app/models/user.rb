@@ -47,4 +47,12 @@ class User < ApplicationRecord
   has_many :friends_r, through: :accepted_sent_friend_requests, source: :recipient
   has_many :friends_s, through: :accepted_received_friend_requests, source: :sender
 
+  def friend_ids
+    (friends_r.ids + friends_s.ids).uniq
+  end
+
+  def friends
+    User.where(id: friend_ids)
+  end
+  
 end

@@ -29,4 +29,9 @@ class Step < ApplicationRecord
   has_many :fans, through: :support
   has_one :owner, through: :habit
 
+   #Support types
+   has_many :like_supports, ->{ like }, foreign_key: :step_id,  class_name: "Support"
+   has_many :love_supports, ->{ love }, foreign_key: :step_id,  class_name: "Support"
+   has_many :celebrate_supports, ->{ celebrate }, foreign_key: :step_id,  class_name: "Support"
+
 end

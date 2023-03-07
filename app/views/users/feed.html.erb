@@ -1,0 +1,18 @@
+
+hola
+<% @feed.each do |fr| %>
+      <tr>
+        <td><%= fr.username %></td>
+        <td><%= fr.id %></td>
+      
+      <% fr.own_steps.each do |st|%>
+        <td><%= st.habit.title %></td>
+        <td><%= st.id %></td>
+<%end%>
+<%end%>
+
+fedd
+<% feed.own_steps.each do |st|%>
+        <td><%= st.habit.title %></td>
+        <td><%= st.id %></td>
+<%end%>

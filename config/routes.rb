@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   root "habits#index"
   
-  resources :supports
-  resources :steps
-  resources :friend_requests
-  resources :habits
+  resources :supports #, only: [:create,:destroy] 
+  resources :steps #, except: [:index,:show]  REVIEW
+  resources :friend_requests #, except: [:index,:show,:new,:edit]
+  resources :habits #, except: [:index,:show]  REVIEW
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get ":username" => "users#show", as: :profile
+  get ":username/progress" => "users#progress", as: :progress
+  get ":username/feed" => "users#feed", as: :feed
 end
