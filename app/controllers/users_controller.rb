@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
-    @friends = @user.friends
+    @friends_sent = @user.accepted_sent_friend_requests
+    @friends_received = @user.accepted_received_friend_requests
    
     respond_to do |format|
       format.html
@@ -30,7 +31,35 @@ class UsersController < ApplicationController
     end
   end
 
+  def friends
+    if params[:username]
+      @user = User.find_by!(username: params.fetch(:username))
+    else
+      @user = current_user
+    end
+    @friends = @user.friends
 
+    respond_to do |format|
+      format.html 
+      format.json 
+
+    end
+  end
+
+  def pending
+    if params[:username]
+      @user = User.find_by!(username: params.fetch(:username))
+    else
+      @user = current_user
+    end
+    @pendings = @user.pending_received_friend_requests
+
+    respond_to do |format|
+      format.html 
+      format.json 
+
+    end
+  end
 
 
 end 

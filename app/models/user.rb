@@ -37,6 +37,7 @@ class User < ApplicationRecord
   #Friends sender and receipent
   has_many :accepted_sent_friend_requests, ->{ accepted }, foreign_key: :sender_id,  class_name: "FriendRequest"
   has_many :accepted_received_friend_requests, ->{ accepted }, foreign_key: :recipient_id,  class_name: "FriendRequest"
+  has_many :pending_received_friend_requests, ->{ pending }, foreign_key: :recipient_id,  class_name: "FriendRequest"
 
   has_many :supports, foreign_key: :fan_id, dependent: :destroy
 

@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get ":username" => "users#show", as: :profile
   get ":username/progress" => "users#progress", as: :progress
   get ":username/feed" => "users#feed", as: :feed
+  get ":username/friends" => "users#friends", as: :friends
+  get ":username/pending" => "users#pending", as: :pending
 end
