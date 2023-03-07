@@ -36,6 +36,7 @@ class FriendRequestsController < ApplicationController
 
   # PATCH/PUT /friend_requests/1 or /friend_requests/1.json
   def update
+
     respond_to do |format|
       if @friend_request.update(friend_request_params)
         format.html { redirect_to friend_request_url(@friend_request), notice: "Friend request was successfully updated." }
@@ -49,11 +50,16 @@ class FriendRequestsController < ApplicationController
 
   # DELETE /friend_requests/1 or /friend_requests/1.json
   def destroy
+    # A friend_request should be only destroy by the people involved
+    #if @friend_request.sender!= current_user && @friend_request.recipient != current_user
+    #  redirect_back(fallback_location: root_url, alert: "Not authorized")
+    #else 
     @friend_request.destroy
 
-    respond_to do |format|
-      format.html { redirect_to friend_requests_url, notice: "Friend request was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to friend_requests_url, notice: "Friend request was successfully destroyed." }
+        format.json { head :no_content }
+    # end
     end
   end
 

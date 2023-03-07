@@ -6,4 +6,6 @@ end
 json.supports do
   json.array! step.supports, partial: "supports/support", as: :support
 end
-
+json.habit do
+  json.title step.habit.title
+end

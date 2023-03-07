@@ -49,11 +49,16 @@ class SupportsController < ApplicationController
 
   # DELETE /supports/1 or /supports/1.json
   def destroy
-    @support.destroy
+    # A support should be only destroy by the people involved
+    if support.owner!= current_user && support.fan != current_user
+      redirect_back(fallback_location: root_url, alert: "Not authorized")
+    else 
+      @support.destroy
 
-    respond_to do |format|
-      format.html { redirect_to supports_url, notice: "Support was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to supports_url, notice: "Support was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
   end
 

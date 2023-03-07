@@ -6,9 +6,8 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
-    @friends_sent = @user.accepted_sent_friend_requests
-    @friends_received = @user.accepted_received_friend_requests
-   
+    @friends = @user.friends
+    
     respond_to do |format|
       format.html
       format.json
@@ -37,7 +36,9 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
-    @friends = @user.friends
+
+    @friends_sent = @user.accepted_sent_friend_requests
+    @friends_received = @user.accepted_received_friend_requests
 
     respond_to do |format|
       format.html 
