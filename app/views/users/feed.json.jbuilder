@@ -1,4 +1,4 @@
-json.extract! @user, :id, :friends, :username, :own_habits, :own_steps
-json.friends do
-  json.array! @friends.own_steps, partial: "steps/step", as: :step
+json.extract! @feed, :user
+json.users do
+  json.array! @feed.user, partial: "users/ownsteps", as: :user
 end

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
-    @friends = @user.friends
+    @feed = @user.friends
     
     respond_to do |format|
       format.html
