@@ -84,12 +84,9 @@ task sample_data: :environment do
         #Comments and Support
         user.friends_s.each do |friend|
           #Supports
-          if rand < 0.6
-            step.supports.create(
-              support_type: Support.support_types.keys.sample, 
-              fan: friend
-            )
-          end
+          step.supports.create(
+          support_type: Support.support_types.keys.sample, 
+          fan: friend
 
         end
       end  
