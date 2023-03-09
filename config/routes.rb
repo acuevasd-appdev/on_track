@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :steps #, except: [:index,:show]  REVIEW
   resources :friend_requests #, except: [:index,:show,:new,:edit]
   resources :habits #, except: [:index,:show]  REVIEW
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions'}
 
+  get ":all" => "users#all", as: :all
   get ":username" => "users#show", as: :profile
   get ":username/progress" => "users#progress", as: :progress
   get ":username/feed" => "users#feed", as: :feed
