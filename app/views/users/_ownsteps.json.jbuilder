@@ -1,4 +1,4 @@
-json.extract! user,  :id, :username, :own_habits, :own_steps
+#json.extract! user,  :id, :username, :own_habits, :own_steps
 #json.url step_url(user, format: :json)
 #json.owner do
 #  json.username step.owner.username
