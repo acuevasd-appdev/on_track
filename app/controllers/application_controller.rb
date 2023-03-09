@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, if: :json_request?
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    devise_parameter_sanitizer.permit(:update, keys: [:username])
+  end
 
   respond_to :html, :json
 
@@ -10,9 +17,6 @@ class ApplicationController < ActionController::Base
     request.format.json?
   end
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :private])
-    devise_parameter_sanitizer.permit(:update, keys: [:private])
-  end
+  
 
 end
