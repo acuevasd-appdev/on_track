@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def all
+    @users = User.all
+  end
+  
   def feed
     if params[:username]
       @user = User.find_by!(username: params.fetch(:username))
