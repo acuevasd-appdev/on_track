@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :habits #, except: [:index,:show]  REVIEW
   devise_for :users
 
+  get "lasttry" => "users#lasttry", as: :lasttry
   get "all" => "users#all", as: :all
   get ":username" => "users#show", as: :profile
   get ":username/progress" => "users#progress", as: :progress

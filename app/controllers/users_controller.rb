@@ -10,8 +10,13 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
-    @feed = @user.friends
     
+    #@people = @user.friends
+
+   
+
+    #@feed = Step.where(owner: @user.friends)
+   
     respond_to do |format|
       format.html
       format.json
@@ -64,6 +69,15 @@ class UsersController < ApplicationController
       format.json 
 
     end
+  end
+
+  def show
+    if params[:username]
+      @user = User.find_by!(username: params.fetch(:username))
+    else
+      @user = current_user
+    end
+  
   end
 
 

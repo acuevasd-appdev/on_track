@@ -1,4 +1,4 @@
-<%= current_user.username%>
+<%= @user.username%>
 
 <table>
   <thead>
@@ -17,7 +17,7 @@
   </thead>
 
   <tbody>
-    <% current_user.own_habits.each do |habit| %>
+    <% @user.own_habits.each do |habit| %>
       <tr>
         <td><%= habit.title %></td>
         <td><%= habit.description %></td>
@@ -44,7 +44,6 @@
     <tr>
       <th>Caption</th>
       <th>Image</th>
-      <th>Comments count</th>
       <th>Supports count</th>
       <th>Habit</th>
       <th>Owner</th>
@@ -54,7 +53,7 @@
   </thead>
 
   <tbody>
-    <% current_user.own_steps.each do |action| %>
+    <% @user.own_steps.each do |action| %>
       <tr>
         <td><%= action.caption %></td>
         <td><%= action.image %></td>

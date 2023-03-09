@@ -1,6 +1,6 @@
 
 hola
-<% @feed.each do |fr| %>
+<% @feed1.each do |fr| %>
  <tr>
  <td><%= fr.username %></td>
  <td><%= fr.id %> </td>
@@ -9,4 +9,10 @@ hola
     <td><%= st.id %></td>
   <%end%>
   </tr>
+<%end%>
+
+<% @feed.each do |fr| %>
+ <tr>
+ <td><%= fr.id %> </td>
+
 <%end%>
