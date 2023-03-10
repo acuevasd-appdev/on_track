@@ -56,7 +56,7 @@ class User < ApplicationRecord
     User.where(id: friend_ids)
   end
 
-  has_many :feed, through: :friends_s, source: :own_steps
+  has_many :feed_s, through: :friends_s, source: :own_steps
   has_many :feed_r, through: :friends_r, source: :own_steps
   
 end

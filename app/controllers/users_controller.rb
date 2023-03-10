@@ -26,13 +26,12 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
-    
-    #@people = @user.friends
-
    
+    people = @user.friend_ids
+    theirhabits = Habit.where(owner_id: people)
+    habitsid = theirhabits.ids
+    @prefeed = Step.where(habit_id: habitsid).order(created_at: "DESC")
 
-    #@feed = Step.where(owner: @user.friends)
-   
     respond_to do |format|
       format.html
       format.json

@@ -39,8 +39,6 @@ task sample_data: :environment do
           #keys or values
         )
       end
-
-      
     end
   end
 
@@ -85,10 +83,11 @@ task sample_data: :environment do
         user.friends_s.each do |friend|
           #Supports
           step.supports.create(
-          support_type: Support.support_types.keys.sample, 
-          fan: friend
-
+            support_type: Support.support_types.keys.sample, 
+            fan: friend
+          )
         end
+
       end  
    end
   end
