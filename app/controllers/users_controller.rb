@@ -3,6 +3,22 @@ class UsersController < ApplicationController
   def all
     @users = User.all
   end
+
+  def steps
+    if params[:username]
+      @user = User.find_by!(username: params.fetch(:username))
+    else
+      @user = current_user
+    end
+
+    respond_to do |format|
+      format.html
+      format.json
+
+    end
+
+
+  end
   
   def feed
     if params[:username]
