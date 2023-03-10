@@ -60,7 +60,7 @@ task sample_data: :environment do
         )
       
       #Steps
-      steptimes = rand(1..3)
+      steptimes = rand(1..4)
       steptimes.times do 
         cap_text = Faker::Quote.most_interesting_man_in_the_world
         if rand < 0.5
