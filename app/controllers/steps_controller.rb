@@ -23,6 +23,16 @@ class StepsController < ApplicationController
   def create
     @step = Step.new(step_params)
 
+    #For future: new step to update progress and top streak
+    #if @step.save
+      #habit = @step.habit
+      #Review that last step was on track for the goal (for future reference)
+      #habit.current_progress += 1 
+      #if habit.top_streak < habit.current_progress
+        #habit.top_streak = habit.current_progress
+      #end
+    #end
+
     respond_to do |format|
       if @step.save
         format.html { redirect_to step_url(@step), notice: "Step was successfully created." }
