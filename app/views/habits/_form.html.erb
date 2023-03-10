@@ -1,0 +1,67 @@
+<%= form_with(model: habit) do |form| %>
+  <% if habit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(habit.errors.count, "error") %> prohibited this habit from being saved:</h2>
+
+      <ul>
+        <% habit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :habit_type %>
+    <%= form.text_field :habit_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :frequency %>
+    <%= form.text_field :frequency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :goal_frequency %>
+    <%= form.number_field :goal_frequency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :private %>
+    <%= form.check_box :private %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_progress %>
+    <%= form.text_field :current_progress %>
+  </div>
+
+  <div class="field">
+    <%= form.label :top_streak %>
+    <%= form.text_field :top_streak %>
+  </div>
+
+  <div class="field">
+    <%= form.label :owner_id %>
+    <%= form.text_field :owner_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :steps_count %>
+    <%= form.number_field :steps_count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
